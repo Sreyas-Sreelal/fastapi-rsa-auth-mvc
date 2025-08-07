@@ -80,8 +80,6 @@ def login(username: str, password: str,  response:  Response):
 @app.get('/refresh')
 def refresh(request: Request, response: Response):
     refresh_token = request.cookies.get("refresh_token")
-    if not refresh_token:
-        raise HTTPException()
     refresh_token_decoded = decode_token(refresh_token)
     create_token_pairs(
         response, {"username": refresh_token_decoded['username']}
