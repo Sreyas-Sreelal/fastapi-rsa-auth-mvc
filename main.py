@@ -84,7 +84,8 @@ def refresh(request: Request, response: Response):
         raise HTTPException()
     refresh_token_decoded = decode_token(refresh_token)
     create_token_pairs(
-        response, {"username": refresh_token_decoded['username']})
+        response, {"username": refresh_token_decoded['username']}
+    )
     return {"ok": True, "message": "success"}
 
 
